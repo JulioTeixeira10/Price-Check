@@ -51,18 +51,23 @@ for line in file_contents.split('\n'):
     produtos_bmais[id_produto] = estoque
 
 if len(produtos_bmais) != len(produtos_fc):
-    print(f"DIVERGENCIA ENCONTRADA: A quantidade de produtos entre sistemas não é a mesma, FC = {len(produtos_fc)} <-> B+ {len(produtos_bmais)}")
+    print(f"DIVERGÊNCIA ENCONTRADA: A quantidade de produtos entre sistemas não é a mesma: [FC = {len(produtos_fc)} <-> B+ {len(produtos_bmais)}]")
 
 c = 0
 
 for key in produtos_bmais:
     if produtos_bmais[key] != produtos_fc[key]:
-        print(f"Diferença de preço encontrada: ID = {key} // B+ = {produtos_bmais[key]} <-> FC = {produtos_fc[key]}")
+        print(f"Diferença de preço encontrada: ID = {key} // B+ = R$ {produtos_bmais[key]} <-> FC = R$ {produtos_fc[key]}")
         c += 1
 
 if c == 0:
     print("Nenhuma diferença encontrada.")
 else:
-    print("\n")
-    print(f"Foram encontradas {c} diferenças de preço em total.")
-    print("\n")
+    if c == 1:
+        print("\n")
+        print(f"Foi encontrada apenas {c} diferença de preço em total.")
+        print("\n")
+    else:
+        print("\n")
+        print(f"Foram encontradas {c} diferenças de preço em total.")
+        print("\n")
