@@ -76,7 +76,7 @@ else:
     else:
         output(f"Foram encontradas {c} diferenças de preço em total.\n")
 
-if (response.text.find("<ErrCod>0")) == -1:
+if (response.text.find("<ErrCod>")) > 0:
     with open("C:\\Bancamais\\Fastcommerce\\ProgramasExtras\\Conferência\\Price-Check\\Erro.txt", "w+") as e:
         e.write("Houve um erro ao checar os IDs.")
         e.write("\n")
